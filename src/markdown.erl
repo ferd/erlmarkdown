@@ -1024,7 +1024,7 @@ get_email_addie(String) ->
         {match, [{N, _} | _T]} ->
             {Possible, [$> | T]} = lists:split(N, String),
             EMail_regex = "[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+"
-                ++ "(?:\.[a-za-Z0-9!#$%&'*+/=?^_`{|}~-]+)*"
+                ++ "(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*"
                 ++ "@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+"
                 ++ "(?:[a-zA-Z]{2}|com|org|net|gov|mil"
                 ++ "|biz|info|mobi|name|aero|jobs|museum)",
