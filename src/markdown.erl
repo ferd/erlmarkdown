@@ -158,10 +158,10 @@ p1([{normal, P}, {h2_or_hr, _} | T], R, I, Acc) ->
 %% blockquotes swallow each other
 %% replace the first blockquote mark with a space...
 p1([{blockquote, P1}, {blockquote, [_ | P2]} | T], R, I, Acc) ->
-    p1([{blockquote, merge(P1, pad(I), [{{ws, sp}, " "} | P2])} | T], R, I, Acc);
+    p1([{blockquote, merge(P1++[{tags, "<br />"}], [], P2)} | T], R, I, Acc);
 %% blockquotes swallow normal
 p1([{blockquote, P1}, {normal, P2} | T], R, I, Acc) ->
-    p1([{blockquote, merge(P1, pad(I + 1), P2)} | T], R, I, Acc);
+    p1([{blockquote, merge(P1, [], P2)} | T], R, I, Acc);
 %% blockquote
 p1([{blockquote, P} | T], R, I, Acc) ->
     [{{md, gt}, _} | T1] = P,
